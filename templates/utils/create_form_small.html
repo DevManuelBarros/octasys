@@ -1,6 +1,7 @@
 {% extends "../index.html" %}
 
 {% block cuerpo %}
+<div class="card">
 <div class="app-page-title">
 	<div class="page-title-heading">
 		<div class="page-title-icon">
@@ -11,10 +12,11 @@
 </div>
 
 <div class="main-card mb-3 card">
-	<div class="card-body">
-		<h5 class="card-title"> {{ nombre_fomulario }} </h5>
+	<h5 class="card-title"> {{ nombre_fomulario }} </h5>
+	   <div class="card-body">
+		
 		<form class="needs-validation" action="" method="post">{% csrf_token %}
-                 {% for campo in form %} 
+            {% for campo in form %} 
 					{% if forloop.first %}
 						<div class=row>
 					{% endif %}
@@ -34,5 +36,5 @@
 		</form>
 	</div>
 </div>
-
+</div>
 {% endblock %}
