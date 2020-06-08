@@ -1,0 +1,77 @@
+{% extends 'index.html' %}
+{% block cuerpo %}
+
+<h2>Listado de Precios Pago Efectivo o Transferencia Bancaria</h2>
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            {% for ind_titulo  in titulos  %}
+                <th  scope="col">{{ ind_titulo }} </th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        
+            {% for key, value in fn.items  %}
+                <tr>
+                <th scope="row">{{ key }} </th>  
+                {% for key2, value2 in value.items  %}
+                    <td>  $ {{ value2 }}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+    <tbody>
+</table>
+
+
+
+<h2>Listado de Precios para MercadoPago</h2>
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            {% for ind_titulo  in titulos  %}
+                <th scope="col">{{ ind_titulo }} </th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        
+            {% for key, value in mp.items  %}
+                <tr>
+                <th scope="row">{{ key }} </th>  
+                {% for key2, value2 in value.items  %}
+                    <td>  $ {{ value2 }}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+    <tbody>
+</table>
+
+
+
+<h2>Listado de Precios para MercadoLibre</h2>
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            {% for ind_titulo  in titulos  %}
+                <th scope="col">{{ ind_titulo }} </th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        
+            {% for key, value in ml.items  %}
+                <tr>
+                <th scope="row">{{ key }} </th>  
+                {% for key2, value2 in value.items  %}
+                    <td>  $ {{ value2 }}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+    <tbody>
+</table>
+
+
+
+
+{% endblock %}
