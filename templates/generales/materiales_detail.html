@@ -1,0 +1,60 @@
+{% extends '../index.html' %}
+{% block cuerpo %}
+<div class="main-card mb-3 card">
+	<div class="card-body">
+		<h5 class="card-title">Detalle de Material - {{ object }}</h5>
+		<table class="table table-hover table-fixed">
+		<tr>
+			<th>
+				Campo
+			</th>
+			<th>
+				Detalle
+			</th>
+		</tr>
+		<tr>
+		      <td>Id</td>
+		      
+		      <td id="td_remito_id">{{ object.id }}</td>
+		      </tr>
+		<tr>
+				<td>Nombre Material: </td>
+				<td><i class="pe-7s-box2 icon-gradient bg-amy-crisp">
+		        </i>
+		        	{{ object.nombre }}
+		      </td>
+		      </tr>
+			<tr>
+		      <td>Costo: </td>
+		      
+		      <td>
+		        {{ object.costo }}
+		      </td>
+		      </tr>
+			
+		      <tr>
+		      <td>Unidad de medida: </td>
+		      
+		      <td>
+		        {{ object.unidad_de_medida }}
+		      </td>
+		      </tr>
+		      <tr>
+		      <td>Descripcion: </td>
+		      <td>
+		        {{ object.descripcion }}
+		        </td>
+		      </tr>	
+		</table>
+	</div>
+</div>
+
+<a href="{% url 'generales:MaterialesList' %}">    
+<button class="mb-2 mr-2 btn-transition btn btn-outline-primary btn-block">
+		<i class="pe-7s-angle-left-circle">Ir a Listado</i>
+</button>
+	</a>		 
+
+
+
+{% endblock %}

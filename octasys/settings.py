@@ -16,6 +16,13 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+
+TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, 'templates/'),)
+
+
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -24,8 +31,8 @@ SECRET_KEY = 'keclui=hlhd=x^i1=94f9r)jy4mp&*z1(ivw%#tscjb532&jc8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
+TEMPLATE_DEBUG = DEBUG
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -67,6 +74,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'octasys.wsgi.application'
 
@@ -125,3 +133,5 @@ STATICFILES_DIRS = (
 )   
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+MEDIA_URL = '/media/'

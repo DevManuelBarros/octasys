@@ -1,0 +1,76 @@
+{% extends '../index.html' %}
+
+{% block cuerpo %}
+
+<div class="app-page-title">
+	<div class="main-card mb-2 card">
+		<div class="card-body">
+			<h5 class="card-title">Filtros</h5>
+			<table class="table table-hover table-fixed">
+				<tr>
+					<td>
+						<label for="filtroNombre">Nombre de Campaña:</label>
+						<input type="text" class="form-control" id="filtroNombre"
+							onkeyup="filtroNombreCliente()"
+							placeholder="Ingrese una Campaña..." /></td>
+					<td>
+						<label for="clientes_select">Cliente:</label>
+						<select id="clientes_select" class="form-control"
+							onchange="filtroNombreCliente()">
+					</td>
+					<td>
+						<label for="filtroEstado">Estados</label>
+						<select class="form-control" id="filtroEstado"
+							onchange="filtroNombreCliente()">
+							<option value="*">Todos</option>
+							<option value="False">Activas</option>
+							<option value="True">Terminadas</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+{% if object_list %}
+<div class="main-card mb-3 card">
+	<div class="card-body">
+	<h5 class="card-title">Listado de Categorias.</h5>
+		<table class="table table-hover table-fixed" id="tablaResultado">
+		  <tr>
+		    <th>Nombre</th>
+		    <th>Descripcion</th>
+		    <th>N° Cat Presta</th>
+		    <th>N° Cat ML</th>
+		  </tr>   
+		      {% for categorias in object_list %}
+		   <tr>
+		      <td> <a href="{% url 'generales:CategoriasDetail' pk=categorias.id %}">
+		      	<i class="pe-7s-box2 icon-gradient bg-amy-crisp">
+		        </i>
+		        {{categorias}}
+		    </a>
+		      </td>
+		      <td>
+		        {{ categorias.descripcion }}
+		      </td>
+		      <td>
+		        {{ categorias.categoria_presta }}
+		      </td>
+		      <td>
+		        {{ categorias.categoria_ml }}
+		      </td>
+		    </tr>
+		      {% endfor %}
+		
+		    {% else %}
+		      <p>No hay registros para mostrar.</p>
+		    {% endif %}      
+		</table>
+	</div>
+</div>
+
+
+{% endblock %}

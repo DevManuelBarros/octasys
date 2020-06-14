@@ -27,6 +27,7 @@ class Categoria(models.Model):
     color = models.BooleanField(default=False)
     categoria_presta = models.IntegerField(default=16)
     categoria_ml =models.IntegerField(default=0)
+    imagen = models.ImageField(upload_to = 'categoria', default='no_img.jpg')
     def __str__(self):
         return self.nombre
 
@@ -46,6 +47,7 @@ class Producto(models.Model):
     descripcion = models.TextField()
     color = models.CharField(max_length=400, blank=True)
     caras = models.CharField(max_length=5, choices=(('s','simple'),('d','doble')), blank=True, default='s')
+    imagen_principal = models.ImageField(upload_to = 'producto', default='no_img.jpg')
     def __str__(self):
         return self.nombre
 
