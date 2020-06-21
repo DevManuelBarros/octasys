@@ -8,7 +8,8 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, 'templates/'),)
 
-
+#Variables Generales
+SESION_PRESTA = 1
 
 
 # Quick-start development settings - unsuitable for production
