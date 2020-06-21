@@ -1,4 +1,6 @@
 {% extends '../index.html' %}
+
+
 {% block cuerpo %}
 <div class="main-card mb-3 card">
 	<div class="card-body">
@@ -25,18 +27,18 @@
 		      </td>
 		      </tr>
 			<tr>
-		      <td>Costo: </td>
+		      <td>Peso: </td>
 		      
 		      <td>
-		        {{ object.costo }}
+		        {{ object.peso }}
 		      </td>
 		      </tr>
 			
 		      <tr>
-		      <td>Unidad de medida: </td>
+		      <td>Forma: </td>
 		      
 		      <td>
-		        {{ object.unidad_de_medida }}
+		        {{ object.forma }}
 		      </td>
 		      </tr>
 		      <tr>
@@ -44,7 +46,88 @@
 		      <td>
 		        {{ object.descripcion }}
 		        </td>
-		      </tr>	
+		      </tr>
+
+              <tr>
+		      <td>Medida 1: </td>
+		      
+		      <td>
+		        {{ object.medida1 }}
+		      </td>
+		      </tr>
+    
+              <tr>
+		      <td>Medida 2: </td>
+		      
+		      <td>
+		        {{ object.medida2 }}
+		      </td>
+		      </tr>
+
+              <tr>
+		      <td>Medida 1 interna: </td>
+		      <td>
+		        {{ object.medida1_int }}
+		      </td>
+		      </tr>
+
+              <tr>
+		      <td>Medida 2 interna: </td>
+		      <td>
+		        {{ object.medida2_int }}
+		      </td>
+		      </tr>
+
+              <tr>
+		      <td>Medida 1 Externa: </td>
+		      <td>
+		        {{ object.medida1_ext }}
+		      </td>
+		      </tr>
+
+              <tr>
+		      <td>Medida 2 Externa: </td>
+		      <td>
+		        {{ object.medida2_ext }}
+		      </td>
+		      </tr>
+
+              <tr>
+		      <td>Caras: </td>
+		      <td>
+		        {{ object.caras }}
+		      </td>
+		      </tr>
+
+              <tr>
+		      <td>Color: </td>
+		      <td>
+		        {{ object.color }}
+		      </td>
+		      </tr>
+
+              <tr>
+		      <td>Categoria Prestashop: </td>
+		      <td>
+		        {{ object.categoria_presta }}
+		      </td>
+		      </tr>
+
+              <tr>
+		      <td>Categoria MercadoLibre: </td>
+		      <td>
+		        {{ object.categoria_ml }}
+		      </td>
+		      </tr>
+
+              <tr>
+		      <td>Ruta Imagen: </td>
+		      <td>
+		        {{ object.imagen }}
+		      </td>
+		      </tr>
+
+
 		</table>
 	</div>
 </div>
@@ -55,6 +138,6 @@
 </button>
 	</a>		 
 
-
+t
 
 {% endblock %}

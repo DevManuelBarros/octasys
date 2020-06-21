@@ -9,8 +9,10 @@ from .views import (index,
                     ProductoList,
                     MaterialDetail,
                     CategoriaDetail,
+                    ProductoDetail,
                     MaterialesUpdate,
-                    CategoriaUpdate)
+                    CategoriaUpdate,
+                    ProductoUpdate)
 
 urlpatterns = [
     path('', index, name="index"),
@@ -20,7 +22,7 @@ urlpatterns = [
     #detalle
     path('materiales/<int:pk>', MaterialDetail.as_view(), name="MaterialesDetail"),
     path('categorias/<int:pk>', CategoriaDetail.as_view(), name="CategoriasDetail"),
-    #path('producto/<int:pk>', ProductoList.as_view(), name="ProductoDetail"),
+    path('producto/<int:pk>', ProductoList.as_view(), name="ProductoDetail"),
     #Listado
     path('materiales/listar/', MaterialesList.as_view(), name="MaterialesList"),
     path('categorias/listar/', CategoriaList.as_view(), name="CategoriasList"),
@@ -28,5 +30,5 @@ urlpatterns = [
     #Actualización
     path('materiales/update/<int:pk>', MaterialesUpdate.as_view(), name="MaterialesUpdate"),
     path('categorias/update/<int:pk>', CategoriaUpdate.as_view(), name="CategoriasUpdate"),
-    
+    path('producto/update/<int:pk>', ProductoUpdate.as_view(), name="ProductoUpdate"),   
 ]

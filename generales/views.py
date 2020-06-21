@@ -96,7 +96,7 @@ class CategoriaUpdate(LoginRequiredMixin, UpdateView):
 class ProductoCreate(LoginRequiredMixin,CreateView):
     form_class = ProductoCreateForm
     template_name = 'generales/create_form_small.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('generales:ProductoList')
 
     def get_context_data(self, **kwargs):
         instance = super(ProductoCreate, self).get_context_data(**kwargs)
@@ -106,3 +106,14 @@ class ProductoCreate(LoginRequiredMixin,CreateView):
 
 class ProductoList(LoginRequiredMixin, ListView):
     model = Producto
+    template_name = 'generales/producto_list.html'
+
+class ProductoUpdate(LoginRequiredMixin, UpdateView):
+    model = Producto
+    form_class = ProductoCreateForm
+    template_name = 'generales/create_form_small.html'
+    success_url = reverse_lazy('generales:ProductoList')
+
+class ProductoDetail(LoginRequiredMixin, DetailView):
+    model = Producto
+    template_name = 'generales/producto_detail'
