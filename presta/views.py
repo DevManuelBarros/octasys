@@ -16,6 +16,8 @@ from .forms import PrestaConfigCreateForm
 
 from django.conf import settings
 
+from .interPresta import get_dataApi
+
 #===============PrestaCofig==========
 class PrestaConfigCreate(LoginRequiredMixin, CreateView):
     form_class = PrestaConfigCreateForm
@@ -34,3 +36,8 @@ def SeleccionPresta(request):
         settings.SESION_PRESTA = int(request.POST.get('sesion', False))
     sesion_actual = PrestaConfig.objects.filter(pk=settings.SESION_PRESTA)[0]       
     return render(request, 'presta/seleccion.html', {'context' : sesiones, 'sp' : sesion_actual})
+
+@login_required
+def VerPresta(request):
+    context = get_dataApi
+    return render(request, 'presta/ver.html', {'context' : context}) 

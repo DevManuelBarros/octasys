@@ -7,7 +7,7 @@ import dicttoxml
 from xml.etree import ElementTree
 
 #Imports particulares
-from prestapi.api.const_rel import relations
+from presta.api.const_rel import relations
 
 class Prestapi:
     """
@@ -343,6 +343,18 @@ class Prestapi:
         struct = struct[list(struct)[0]]                        #traemos la primer key del diccionario
         #print(struct)
         #ahora vamos por las reglas.
+        #Completamos todos los datos de la estructura.
+        tmp = {}
+        tupla_rules = self.get_rules(resource=resource, rec_id=rec_id)
+        tmp['struct'] = struct 
+        tmp['rules'] = tupla_rules[1] #tStruct
+        tmp['relations'] = tupla_rules[0] #relat_id
+        tmp['resource'] = resource
+        return tmp
+
+    def get_rules(self, resource, rec_id=True):
+        struct = self.get_struct(resource=resource)   #traemos los datos.
+        struct = struct[list(struct)[0]]                        #traemos la primer key del diccionario
         tStruct = self.get_struct(resource=resource, schema='synopsis', type_json=False)                             #recuperamos
         tStruct = self.get_rules_dict(tStruct=tStruct)         #convertimos a xml el diccionario.
         tmp = {}                # Creamos un diccionario que utilizaremos.
@@ -353,13 +365,7 @@ class Prestapi:
                 if "id_" == field_struct[:3]:       #Si comienza en id_ tenemos un campo relacionado.
                     values = rel.relations[field_struct] #Buscamos los valores. nombre recurso, y valor
                     relat_id[values[0]] = self.g_id_name(resource=values[0],name=values[1])
-        #Completamos todos los datos de la estructura.
-        tmp['struct'] = struct 
-        tmp['rules'] = tStruct
-        tmp['relations'] = relat_id
-        tmp['resource'] = resource
-        return tmp
-
+        return relat_id, tStruct
 
     def add(self, data, comp_dat=True):
         """
